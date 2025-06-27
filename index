@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Ti 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0e6f6;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* 🦋 Mariposas de fondo */
+    .butterfly-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .butterfly {
+      position: absolute;
+      width: 60px;
+      animation: fly 20s linear infinite, flutter 1.5s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .b1 { top: 80%; left: -10%; animation-delay: 0s; animation-duration: 25s; }
+    .b2 { top: 90%; left: 20%; animation-delay: 3s; animation-duration: 30s; }
+    .b3 { top: 95%; left: 40%; animation-delay: 5s; animation-duration: 28s; }
+    .b4 { top: 85%; left: 70%; animation-delay: 2s; animation-duration: 32s; }
+
+    @keyframes fly {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      100% { transform: translateY(-110vh) translateX(30vw) rotate(360deg); }
+    }
+
+    @keyframes flutter {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.1) rotate(2deg); }
+    }
+
+    /* Mariposas que aparecen al hacer clic */
+    .click-butterfly {
+      position: absolute;
+      width: 50px;
+      pointer-events: none;
+      animation: floatUp 3s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-200px) scale(1.2); }
+    }
+
+    /* 📩 Tu sobre y carta */
+    #envelope {
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      margin: 200px auto 0 auto;
+      background-color: #d9534f;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .front {
+      position: absolute;
+      width: 0;
+      height: 0;
+      z-index: 3;
+    }
+
+    .flap {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 82px solid transparent;
+      border-top: 98px solid #d9534f;
+      transform-origin: top;
+      pointer-events: none;
+    }
+
+    .pocket {
+      border-left: 140px solid #f5a3a2;
+      border-right: 140px solid #f5a3a2;
+      border-bottom: 90px solid #ff6f61;
+      border-top: 90px solid transparent;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .letter {
+      position: relative;
+      background-color: #fff;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 90%;
+      top: 5%;
+      border-radius: 6px;
+      box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+      font-family: "Dancing Script", cursive;
+    }
+
+    .words {
+      position: absolute;
+      left: 10%;
+      width: 80%;
+      background-color: #ffe6e6;
+    }
+
+    .words.line1 {
+      top: 10%;
+      font-size: 0.7rem;
+    }
+
+    .words.line2,
+    .words.line3,
+    .words.line4 {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .words.line2 { top: 30%; }
+    .words.line3 { top: 50%; }
+    .words.line4 { top: 70%; }
+
+    .open .flap {
+      transform: rotateX(180deg);
+      transition: transform 0.4s ease, z-index 0.6s;
+      z-index: 1;
+    }
+
+    .open .letter {
+      transform: translateY(-100px);
+      transition: transform 0.4s 0.6s ease, z-index 0.6s;
+      z-index: 2;
+    }
+
+    /* 🎵 Botón de música */
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-family: sans-serif;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .music-button:hover {
+      background-color: #c9302c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mariposas animadas -->
+  <div class="butterfly-container">
+    <img src="pngwing.com (2).png" class="butterfly b1">
+    <img src="pngwing.com (2).png" class="butterfly b2">
+    <img src="pngwing.com (2).png" class="butterfly b3">
+    <img src="pngwing.com (2).png" class="butterfly b4">
+  </div>
+
+  <!-- Sobre con carta -->
+  <div id="envelope" class="close" onclick="toggleEnvelope()">
+    <div class="front flap"></div>
+    <div class="front pocket"></div>
+    <div class="letter">
+      <div class="words line1">Para ti</div>
+      <div class="words line2">Eres mi mariposa favorita</div>
+      <div class="words line3">Gracias por estar aquí</div>
+      <div class="words line4">Te quiero mucho 💖</div>
+    </div>
+  </div>
+
+  <!-- Botón para abrir música -->
+  <button class="music-button" onclick="window.open('https://www.youtube.com/watch?v=tyKu0uZS86Q&list=RDtyKu0uZS86Q&start_radio=1', '_blank')">
+    🎵 Reproducir Música
+  </button>
+
+  <!-- Script para abrir/cerrar sobre -->
+  <script>
+    function toggleEnvelope() {
+      const envelope = document.getElementById("envelope");
+      envelope.classList.toggle("open");
+      envelope.classList.toggle("close");
+    }
+
+    // Crear mariposas al hacer clic
+    document.addEventListener('click', function(e) {
+      const img = document.createElement('img');
+      img.src = 'pngwing.com (2).png';
+      img.className = 'click-butterfly';
+      img.style.left = (e.clientX - 25) + 'px';
+      img.style.top = (e.clientY - 25) + 'px';
+      document.body.appendChild(img);
+
+      setTimeout(() => img.remove(), 3000);
+    });
+  </script>
+
+</body>
+</html>
