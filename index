@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para Ti 💖</title>
+  <title>For Natasha❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
@@ -58,7 +58,7 @@
       100% { opacity: 0; transform: translateY(-200px) scale(1.2); }
     }
 
-    /* 📩 Tu sobre y carta */
+    /* 📩 Your envelope and letter */
     #envelope {
       position: relative;
       width: 280px;
@@ -176,19 +176,19 @@
     <img src="pngwing.com (2).png" class="butterfly b4">
   </div>
 
-  <!-- Sobre con carta -->
+  <!-- Envelope with letter -->
   <div id="envelope" class="close" onclick="toggleEnvelope()">
     <div class="front flap"></div>
     <div class="front pocket"></div>
     <div class="letter">
-      <div class="words line1">Para ti</div>
-      <div class="words line2">Eres mi mariposa favorita</div>
-      <div class="words line3">Gracias por estar aquí</div>
-      <div class="words line4">Te quiero mucho 💖</div>
+      <div class="words line1">For you</div>
+      <div class="words line2">You're someone capable and incredible!</div>
+      <div class="words line3">Thanks for existing and keep trying</div>
+      <div class="words line4">We're proud of you. You are not alone. You're important. Les queremos mucho!💖 You</div>
     </div>
   </div>
 
-  <!-- Botón para abrir música -->
+  <!-- Click on this song. It´s for you!❤️ -->
   <button class="music-button" onclick="window.open('https://www.youtube.com/watch?v=tyKu0uZS86Q&list=RDtyKu0uZS86Q&start_radio=1', '_blank')">
     🎵 Reproducir Música
   </button>
